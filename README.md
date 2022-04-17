@@ -59,3 +59,14 @@ WaterBill{city='장흥군', sector='임시용(상)', unitPrice=433, billTotal=12
 
 ## 클래스 다이어그램
 <img src="./classDiagram.png">
+
+## SonarQube
+
+
+# 정리
+현재 main(BootStrap.class) 경우 요구사항 5인 JSON 파일을 읽어오는 정책에 맞게 구현 되어있습니다.
+(JsonDataParser.class 빈에 @Primary가 걸려있습니다) <br>
+<br>
+
+단위 테스트 -> CSV 파일을 읽어오는 정책인 상황으로 가정하고 단위 테스트를 진행하였습니다.<br>
+통합 테스트 -> 현재 main과 같이 JSON 파일을 읽어오는 정책인 상황에 맞게 통합 테스트를 진행하였습니다.

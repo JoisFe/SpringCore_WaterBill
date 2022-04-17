@@ -61,6 +61,13 @@ WaterBill{city='장흥군', sector='임시용(상)', unitPrice=433, billTotal=12
 <img src="./classDiagram.png">
 
 ## SonarQube
+링크 : http://133.186.211.156:9000/dashboard?id=com.nhnacademy.edu.springframework.project%3Aspringframework-project2-jojaecheol
+<br>
+<img width="1336" alt="image" src="https://user-images.githubusercontent.com/90208100/163715496-b3009f97-3f07-4589-9bb4-3e5fddfd45fd.png">
+<img width="1333" alt="image" src="https://user-images.githubusercontent.com/90208100/163715506-77b39da1-97ea-437e-a2d5-43e62519f98a.png">
+
+<br>
+var 부분 제외하고는 나머지 code smell 부분 다 제거함
 
 
 # 정리

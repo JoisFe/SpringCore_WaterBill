@@ -59,6 +59,7 @@ class WaterSupplyChargeServiceTest {
         String fileLocation = "data/Tariff_20220331.csv";
         int fileDataSize = 303;
 
+
         assertThat(chargeRepository.getTariffs()).isEmpty();
         assertThat(chargeRepository.getFindedTariffs()).isEmpty();
 
@@ -68,6 +69,20 @@ class WaterSupplyChargeServiceTest {
         // then
         assertThat(chargeRepository.getTariffs()).hasSize(fileDataSize);
         assertThat(chargeRepository.getFindedTariffs()).hasSize(5);
+
+        List<Tariff> findedTariffs = chargeRepository.getFindedTariffs();
+
+        for (Tariff findedTariff : findedTariffs) {
+            assertThat(findedTariff.getIntervalStart() <= waterUsage).isTrue();
+            assertThat(findedTariff.getIntervalEnd() >= waterUsage).isTrue();
+        }
+
+        // 오름 차순 정렬 확인
+        int i;
+        for (i = 0; i < findedTariffs.size() - 1; ++i) {
+            assertThat(findedTariffs.get(i).getUnitPrice() <= findedTariffs.get(i + 1).getUnitPrice()).isTrue();
+        }
+
 
     }
 }

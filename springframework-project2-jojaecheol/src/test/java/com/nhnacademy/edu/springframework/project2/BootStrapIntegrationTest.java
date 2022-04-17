@@ -1,6 +1,5 @@
 package com.nhnacademy.edu.springframework.project2;
 
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
@@ -64,10 +63,15 @@ class BootStrapIntegrationTest {
         assertThat(chargeRepository.getTariffs()).hasSize(303);
         assertThat(chargeRepository.getFindedTariffs()).hasSize(5);
 
+        for (Tariff findedTariff : findedTariffs) {
+            assertThat(findedTariff.getIntervalStart() <= waterUsage).isTrue();
+            assertThat(findedTariff.getIntervalEnd() >= waterUsage).isTrue();
+        }
+
+        // 오름 차순 정렬 확인
         int i;
-        for (i = 0; i < findedTariffs.size(); ++i) {
-            assertThat(findedTariffs.get(i).getIntervalStart() <= waterUsage).isTrue();
-            assertThat(findedTariffs.get(i).getIntervalEnd() >= waterUsage).isTrue();
+        for (i = 0; i < findedTariffs.size() - 1; ++i) {
+            assertThat(findedTariffs.get(i).getUnitPrice() <= findedTariffs.get(i + 1).getUnitPrice()).isTrue();
         }
 
         // calculateCharge 되었는지

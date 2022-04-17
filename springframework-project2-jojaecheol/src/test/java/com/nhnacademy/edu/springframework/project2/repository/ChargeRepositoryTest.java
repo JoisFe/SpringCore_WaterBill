@@ -46,10 +46,15 @@ class ChargeRepositoryTest {
 
         // then
         List<Tariff> findedTariffs = chargeRepository.getFindedTariffs();
+        for (Tariff findedTariff : findedTariffs) {
+            assertThat(findedTariff.getIntervalStart() <= waterUsage).isTrue();
+            assertThat(findedTariff.getIntervalEnd() >= waterUsage).isTrue();
+        }
+
+        // 오름 차순 정렬 확인
         int i;
-        for (i = 0; i < findedTariffs.size(); ++i) {
-            assertThat(findedTariffs.get(i).getIntervalStart() <= waterUsage).isTrue();
-            assertThat(findedTariffs.get(i).getIntervalEnd() >= waterUsage).isTrue();
+        for (i = 0; i < findedTariffs.size() - 1; ++i) {
+            assertThat(findedTariffs.get(i).getUnitPrice() <= findedTariffs.get(i + 1).getUnitPrice()).isTrue();
         }
 
     }

@@ -58,4 +58,4 @@ WaterBill{city='장흥군', sector='임시용(상)', unitPrice=433, billTotal=12
 * jackson 라이브러리를 사용하세요.
 
 ## 클래스 다이어그램
-<img src="./클래스다이어그램.png">
+<img src="./classDiagram.png">

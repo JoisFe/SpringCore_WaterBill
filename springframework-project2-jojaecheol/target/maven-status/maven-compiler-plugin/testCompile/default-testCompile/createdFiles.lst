@@ -1,0 +1,5 @@
+com/nhnacademy/edu/springframework/project2/report/ResultReportTest.class
+com/nhnacademy/edu/springframework/project2/service/WaterSupplyChargeServiceTest.class
+com/nhnacademy/edu/springframework/project2/BootStrapIntegrationTest.class
+com/nhnacademy/edu/springframework/project2/repository/ChargeRepositoryTest.class
+com/nhnacademy/edu/springframework/project2/parser/DataParserTest.class

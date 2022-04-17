@@ -56,3 +56,6 @@ WaterBill{city='장흥군', sector='임시용(상)', unitPrice=433, billTotal=12
 * JSON 포멧의 데이터를 읽어서 동일한 기능을 하도록 수정하세요.
 * 가능하면 확장자에 따라 자동으로 parser 를 선택하도록 구현하세요.
 * jackson 라이브러리를 사용하세요.
+
+## 클래스 다이어그램
+<img src="./클래스다이어그램.png">

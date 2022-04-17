@@ -20,23 +20,22 @@ public class JsonDataParser implements DataParser {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        try(InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileLocation);
+        try (
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileLocation);
         ) {
             assert inputStream != null;
-            try(InputStreamReader inputStreamReader = new InputStreamReader(inputStream,
+            try (InputStreamReader inputStreamReader = new InputStreamReader(inputStream,
                 StandardCharsets.UTF_8);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);) {
+                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);) {
                 Tariff[] tariffs = objectMapper.readValue(bufferedReader, Tariff[].class);
 
                 tariffList = List.of(tariffs);
-
             }
+        } catch (IOException e) {
+            throw new IllegalStateException();
+        }
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
-
-            return tariffList;
+        return tariffList;
     }
 }

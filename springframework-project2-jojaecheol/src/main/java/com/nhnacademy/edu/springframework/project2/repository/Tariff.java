@@ -15,7 +15,10 @@ public class Tariff implements Comparable<Tariff> {
     long unitPrice;
 
 
-    public Tariff(@JsonProperty("순번") int id, @JsonProperty("지자체명") String city, @JsonProperty("업종") String sector, @JsonProperty("단계") int stage, @JsonProperty("구간시작(세제곱미터)") int intervalStart, @JsonProperty("구간끝(세제곱미터)") int intervalEnd,
+    public Tariff(@JsonProperty("순번") int id, @JsonProperty("지자체명") String city,
+                  @JsonProperty("업종") String sector, @JsonProperty("단계") int stage,
+                  @JsonProperty("구간시작(세제곱미터)") int intervalStart,
+                  @JsonProperty("구간끝(세제곱미터)") int intervalEnd,
                   @JsonProperty("구간금액(원)") long unitPrice) {
         this.id = id;
         this.city = city;

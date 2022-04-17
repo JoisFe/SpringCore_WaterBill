@@ -24,9 +24,10 @@ public class AopConfiguration {
         this.chargeRepository = chargeRepository;
     }
 
-    @Before("execution(* com.nhnacademy.edu.springframework.project2.repository.BasicChargeRepository.get*(..))" +
-        "|| execution(* com.nhnacademy.edu.springframework.project2.repository.BasicChargeRepository.findUnitPriceByWaterUsage(..))" +
-        "|| execution(* com.nhnacademy.edu.springframework.project2.service.BasicWaterSupplyChargeService.calculateCharge(..))"
+    @Before(
+        "execution(* com.nhnacademy.edu.springframework.project2.repository.BasicChargeRepository.get*(..))" +
+            "|| execution(* com.nhnacademy.edu.springframework.project2.repository.BasicChargeRepository.findUnitPriceByWaterUsage(..))" +
+            "|| execution(* com.nhnacademy.edu.springframework.project2.service.BasicWaterSupplyChargeService.calculateCharge(..))"
     )
     private void catchNotScoresLoaded() {
         if (!chargeRepository.isLoaded()) {

@@ -4,7 +4,6 @@ import com.nhnacademy.edu.springframework.project2.config.MainConfiguration;
 import com.nhnacademy.edu.springframework.project2.report.ResultReport;
 import com.nhnacademy.edu.springframework.project2.repository.ChargeRepository;
 import com.nhnacademy.edu.springframework.project2.service.WaterSupplyChargeService;
-
 import java.util.Scanner;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -15,12 +14,15 @@ public class BootStrap {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfiguration.class)) {
-            WaterSupplyChargeService waterSupplyChargeService = context.getBean("basicWaterSupplyChargeService",
-                WaterSupplyChargeService.class);
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+            MainConfiguration.class)) {
+            WaterSupplyChargeService waterSupplyChargeService =
+                context.getBean("basicWaterSupplyChargeService",
+                    WaterSupplyChargeService.class);
             ResultReport resultReport = context.getBean("basicResultReport",
                 ResultReport.class);
-            ChargeRepository chargeRepository = context.getBean("basicChargeRepository", ChargeRepository.class);
+            ChargeRepository chargeRepository =
+                context.getBean("basicChargeRepository", ChargeRepository.class);
 
             int waterUsage;
 
